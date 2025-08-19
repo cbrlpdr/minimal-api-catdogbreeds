@@ -1,7 +1,3 @@
-Here’s a polished **README.md** in English for your project:
-
----
-
 # 🐱🐶 Minimal API - CatDogBreeds
 
 A simple **Fastify**-based minimal API that provides information about cat breeds and dog breeds.
