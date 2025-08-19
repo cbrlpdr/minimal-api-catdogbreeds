@@ -2,6 +2,7 @@ import fastify from "fastify";
 import { cats } from "./repositories/catRepository";
 import { dogs } from "./repositories/dogRepository";
 import { request } from "http";
+import cors from "@fastify/cors";
 
 //Creating a type for the parameters
 interface Params{
@@ -11,6 +12,10 @@ interface Params{
 const server = fastify({
     logger: true
 });
+
+server.register(cors, {
+    origin: "*"
+})
 
 
 // * ROUTES
