@@ -3,6 +3,7 @@ import { cats } from "./repositories/catRepository";
 import { dogs } from "./repositories/dogRepository";
 import { request } from "http";
 
+//Creating a type for the parameters
 interface Params{
     id: string
 }
@@ -12,6 +13,7 @@ const server = fastify({
 });
 
 
+// * ROUTES
 server.get("/cats", async(request, response) => {
     response.type("application/json").code(200);
 
@@ -24,7 +26,9 @@ server.get("/dogs", async(request, response) => {
     return [dogs]
 })
 
-
+// * ROUTES WITH PARAMETERS
+//These routes will return a specific cat or dog based on the id provided in the URL
+//The id is parsed from the request parameters and used to find the corresponding cat or dog in the repositories
 server.get<{Params: Params}>("/cats/:id", async(request, response) => {
     const id = parseInt(request.params.id);
     const cat = cats.find((c) => c.id === id);
@@ -51,7 +55,8 @@ server.get<{Params: Params}>("/dogs/:id", async(request, response) => {
     }
 })
 
-
+// * SERVER LISTENING
+//This is where the server starts listening for requests
 server.listen({port: 3333},
 () => {
     console.log("Server running...");
