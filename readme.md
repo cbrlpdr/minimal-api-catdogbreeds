@@ -19,7 +19,7 @@ This project is ideal for learning how to build lightweight REST APIs with TypeS
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/yourusername/minimal-api-catdogbreeds.git
+git clone https://github.com/cbrlpdr/minimal-api-catdogbreeds
 cd minimal-api-catdogbreeds
 npm install
 ```
